@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('landings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mission_id')->constrained()->onDelete('cascade');
+            $table->date('date');
+            $table->string('site_name');
+            $table->string('country');
+            $table->decimal('latitude', 10, 7);
+            $table->decimal('longitude', 10, 7);
+            $table->boolean('parachute_landing');
+            $table->integer('impact_velocity_mps');
             $table->timestamps();
         });
     }

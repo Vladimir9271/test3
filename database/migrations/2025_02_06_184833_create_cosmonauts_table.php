@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('cosmonauts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mission_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->date('birthdate');
+            $table->string('rank');
+            $table->text('early_life');
+            $table->text('career');
+            $table->text('post_flight');
             $table->timestamps();
         });
     }
